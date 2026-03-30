@@ -145,17 +145,13 @@ tau_seconds_grid = tau_planck_grid * t_planck_to_s
 
 # Plot
 plt.figure(figsize=(10, 6))
-
-# Usiamo [1:] per saltare il primo punto (che è zero)
 plt.plot(M_grafico[1:], tau_seconds_grid[1:], color='magenta', linewidth=2, label=r'Lifetime $\tau(M)$')
-
-# Età dell'Universo
 t_universo = 4.35e17 
 plt.axhline(y=t_universo, color='black', linestyle='--', alpha=0.6, label='Age of the Universe')
 plt.xscale('log')
 plt.yscale('log')
-plt.xlim(1, M_grafico[-1])                # Parte dalla massa di Planck
-plt.ylim(1e-45, tau_seconds_grid[-1]*5)    # Parte da un tempo inferiore a quello di Planck
+plt.xlim(1, M_grafico[-1])                
+plt.ylim(1e-45, tau_seconds_grid[-1]*5)    
 plt.xlabel(r'BH Mass [$M_p$]')
 plt.ylabel(r'Lifetime $\tau$ [s]')
 plt.title('Black Hole Lifetime vs Mass')
