@@ -123,7 +123,6 @@ def d2N_dpdtGO(p_array, mi, s, gi, Mi):
     d2N = (gi / (2 * np.pi**2)) * (sigma_GO / (np.exp(E_array / Ti) + stat_sign)) * (p_array**3 / E_array)
     return d2N
 #epsilon_tot
-#epsilon_tot
 def epsilon_tot(M_curr, m_DM, s_DM, g_DM):
     T_curr = 1.0 / (8 * np.pi * G * M_curr)
     eps_tot = 0.0
@@ -155,7 +154,6 @@ def dN_dp(p_array, mi, s, gi, Mi):
     M_int = np.geomspace(Mi, 1.0, 1500) 
     integrand_matrix = np.zeros((len(M_int), len(p_array)))
     for i, M_curr in enumerate(M_int):
-        # ORA PASSIAMO I PARAMETRI DELLA DM ALLA FUNZIONE EPSILON
         eps = epsilon_tot(M_curr, mi, s, gi)
         d2N = d2N_dpdt(p_array, mi, s, gi, M_curr) 
         dt_dM = (M_curr**2) / eps
@@ -166,7 +164,6 @@ def dN_dp_GO(p_array, mi, s, gi, Mi):
     M_int = np.geomspace(Mi, 1.0, 1500) 
     integrand_matrix = np.zeros((len(M_int), len(p_array)))
     for i, M_curr in enumerate(M_int):
-        # STESSA COSA QUI
         eps = epsilon_tot(M_curr, mi, s, gi)
         d2N = d2N_dpdtGO(p_array, mi, s, gi, M_curr) 
         dt_dM = (M_curr**2) / eps
